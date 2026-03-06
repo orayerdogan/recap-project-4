@@ -3,20 +3,29 @@ import ColorInput from "./ColorInput";
 import { nanoid } from "nanoid";
 import "./ColorForm.css";
 
-export default function ColorForm({ addColor }) {
-  const [role, setRole] = useState("Primary main");
-  const [hex, setHex] = useState("#ff4a11");
-  const [contrastText, setContrastText] = useState("#FFFFFF");
+export default function ColorForm({ addColor, initialColor }) {
+  const [role, setRole] = useState(initialColor?.role || "Primary main");
+  const [hex, setHex] = useState(initialColor?.hex || "#ff4a11");
+  const [contrastText, setContrastText] = useState(
+    initialColor?.contrastText || "#FFFFFF",
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const newColor = {
-      id: nanoid(),
+      id: initialColor?.id || nanoid(),
       role,
       hex,
       contrastText,
     };
     addColor(newColor);
+
+    if (!initialColor) {
+      setRole("Primary main");
+      setHex("#ff4a11");
+      setContrastText("#FFFFFF");
+    }
   };
   return (
     <form onSubmit={handleSubmit} className="color-form">
@@ -30,7 +39,9 @@ export default function ColorForm({ addColor }) {
         value={contrastText}
         onChange={setContrastText}
       />
-      <button type="submit">Add Color</button>
+      <button type="submit">
+        {initialColor ? "Update Color" : "Add Color"}
+      </button>
     </form>
   );
 }
