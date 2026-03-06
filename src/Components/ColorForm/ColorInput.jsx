@@ -8,6 +8,11 @@ export default function ColorInput({ label, value, onChange }) {
           value={value}
           onChange={(event) => onChange(event.target.value)}
         />
+        <input
+          type="color"
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+        />
       </label>
     </div>
   );
