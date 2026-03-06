@@ -22,7 +22,7 @@ export default function ColorForm({ addColor, initialColor }) {
     addColor(newColor);
 
     if (!initialColor) {
-      setRole("Primary main");
+      setRole("primary main");
       setHex("#ff4a11");
       setContrastText("#FFFFFF");
     }
