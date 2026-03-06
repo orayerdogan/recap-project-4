@@ -9,14 +9,24 @@ function App() {
   const addColor = (newColor) => {
     setColors([newColor, ...colors]);
   };
+  const deleteColor = (id) => {
+    setColors(colors.filter((color) => color.id !== id));
+  };
   return (
-    <>
+    <div className="App">
       <h1>Theme Creator</h1>
       <ColorForm addColor={addColor} />
-      {colors.map((color) => (
-        <Color key={color.id} color={color} />
-      ))}
-    </>
+
+      {colors.length === 0 ? (
+        <p className="color-card-hightlight">
+          No colors in the theme. Please add new colors!
+        </p>
+      ) : (
+        colors.map((color) => (
+          <Color key={color.id} color={color} onDelete={deleteColor} />
+        ))
+      )}
+    </div>
   );
 }
 
