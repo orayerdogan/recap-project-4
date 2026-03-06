@@ -1,0 +1,26 @@
+.color-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.color-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-form input[type="text"] {
+  width: 100px;
+}
+
+.color-form button {
+  width: 120px;
+  padding: 6px;
+  cursor: pointer;
+  background-color: #252629; /* dunkelgrau */
+  color: #ffffff; /* Text sichtbar */
+  border: none;
+  border-radius: 4px;
+}
