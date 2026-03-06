@@ -1,11 +1,20 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ColorForm from "./Components/ColorForm/ColorForm";
 
+
+
 function App() {
-  const [colors, setColors] = useState(initialColors);
+  const [colors, setColors] = useState(() => {
+    const saved = localStorage.getItem("themeColors");
+    return saved ? JSON.parse(saved) : initialColors;
+  });
+  useEffect(() => {
+    localStorage.setItem("themeColors", JSON.stringify(colors));
+  }, [colors]);
+
   const addColor = (newColor) => {
     setColors([newColor, ...colors]);
   };
