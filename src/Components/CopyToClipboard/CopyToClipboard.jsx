@@ -1,5 +1,21 @@
 import { useState, useEffect } from "react";
 
+/**
+ * CopyToClipboard Component
+ * -------------------------
+ * Diese Komponente ermöglicht es, einen übergebenen Textwert
+ * (z.B. einen Hex-Farbwert) in die Zwischenablage des Nutzers zu kopieren.
+ *
+ * Nach dem erfolgreichen Kopieren wird für kurze Zeit eine visuelle
+ * Bestätigung ("Copied!") angezeigt.
+ *
+ * Props:
+ *
+ * @param {string} text
+ * Der Text, der in die Zwischenablage kopiert werden soll.
+ * Beispiel: "#ff4a11"
+ */
+
 export default function CopyToClipboard({ text }) {
   const [copied, setCopied] = useState(false);
 
