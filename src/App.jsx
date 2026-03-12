@@ -4,7 +4,21 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import ColorForm from "./Components/ColorForm/ColorForm";
 
-
+/**
+ * App Component
+ * -------------
+ * Dies ist die Hauptkomponente der Anwendung "Theme Creator".
+ *
+ * Die Komponente verwaltet eine Liste von Farben, die ein Theme bilden.
+ * Nutzer können:
+ * - neue Farben hinzufügen
+ * - bestehende Farben löschen
+ * - Farben bearbeiten
+ *
+ * Die Farbdaten werden im React State gespeichert und zusätzlich
+ * im localStorage persistiert, damit sie nach einem Seiten-Reload
+ * erhalten bleiben.
+ */
 
 function App() {
   const [colors, setColors] = useState(() => {
